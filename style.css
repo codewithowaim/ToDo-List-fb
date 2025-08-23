@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0b1d3a, #0b1d3a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.container {
+  background: #1c2e4a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px) brightness(1.1);
+  -webkit-backdrop-filter: blur(12px) brightness(1.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 img {
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 400px) {
+  .input-group {
+    flex-direction: row;
+  }
+}
+
+.input-group input {
+  padding: 12px 15px;
+  background-color: #10263f;
+  border-radius: 15px;
+  width: 100%;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+  border: none;
+
+}
+
+input::placeholder {
+  color: #8aa5c0;
+}
+
+input:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 1px 1px 20px 1px rgba(201, 201, 201, 0.369);
+  color: white;
+}
+
+.input-group button {
+  padding: 12px 15px;
+  width: 100%;
+  background-color: #375dff;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bolder;
+  transition: background-color 0.3s ease;
+}
+
+.input-group button:hover {
+  background-color: #0023bd;
+}
+
+@media (min-width: 400px) {
+  .input-group button {
+    width: auto;
+    padding: 0px 15px;
+  }
+}
+
+.city-list {
+  list-style-type: none;
+  margin-top: 15px;
+}
+
+.city-list li {
+  background-color: #10263f;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 1px 3px rgba(94, 94, 94, 0.35);
+  transition: all 0.3s ease;
+}
+
+.city-list li:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.15);
+}
+
+.city-list li span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.city-list .btn-group {
+  display: flex;
+  gap: 5px;
+}
+
+.city-list button {
+  padding: 5px 8px;
+  font-size: 1.2rem;
+  min-width: 50px;
+  background-color: transparent;
+  color: #c5baba;
+  border: none;
+  border-radius: 6px;
+}
+
+.city-list button:hover {
+  background-color: #3b4ebe;
+  color: white;
+}
+
+.city-list button.edit {
+
+  background-color: transparent;
+  color: #c4bcbc;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.city-list button.edit:hover {
+  background-color: #3b4ebe;
+  color: white;
+}
+
+#empty-msg {
+  color: #aaa8a8;
+  text-align: center;
+  font-style: italic;
+}
+
+.status-message {
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+.status-text {
+  font-size: 1rem;
+  color: #f8f9fb;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.status-line {
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.show-message .status-text {
+  animation:
+    textFadeIn 0.3s ease-out forwards,
+    textFadeOut 0.3s ease-out 2s forwards;
+}
+
+.show-message .status-line {
+  animation:
+    lineExpand 0.3s ease-out 0.1s forwards,
+    lineShrink 0.3s ease-out 2.1s forwards;
+}
+
+@keyframes textFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textFadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes lineExpand {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes lineShrink {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.9s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}

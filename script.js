@@ -2,10 +2,10 @@ import { db } from "./config.js";
 import { collection, addDoc, onSnapshot, query, deleteDoc, doc, updateDoc } from "./db.js";
 document.addEventListener("DOMContentLoaded", function () {
 
-    const cityBox = document.getElementById("cities-list");
+    const listbox = document.getElementById("list");
     const addBtn = document.getElementById("btn-1");
     const updateBtn = document.getElementById("btn-2");
-    let userInput = document.getElementById("city-input");
+    let userInput = document.getElementById("task-input");
     const emptyMsg = document.getElementById("empty-msg");
 
     let currentTaskId = null;
@@ -50,10 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const q = query(collection(db, "ToDoTask"));
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
-            cityBox.innerHTML = ""
+            listbox.innerHTML = ""
             if (querySnapshot.empty) {
                 emptyMsg.style.display = "block";
-                cityBox.appendChild(emptyMsg);
+                listbox.appendChild(emptyMsg);
                 return;
             }
             else {
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 list.appendChild(btnGroup);
                 btnGroup.appendChild(deleteBtn);
                 btnGroup.appendChild(editBtn);
-                cityBox.appendChild(list);
+                listbox.appendChild(list);
             });
 
         });

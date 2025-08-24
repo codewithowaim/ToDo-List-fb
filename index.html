@@ -9,29 +9,27 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2><img src="building.svg" alt="">Cities List</h2>
 
+  <div class="app">
+    <h1 class="title">My To-Do List</h1>
 
-        <div class="status-message">
-            <div class="status-text"></div>
-            <div class="status-line"></div>
-        </div>
-
-        <div class="input-group">
-            <input id="city-input" type="text" placeholder="Enter a city name" />
-            <button id="btn-1">Add City</button>
-        </div>
-
-        <ul id="cities-list" class="city-list">
-            <p id="empty-msg">No cities added yet.</p>
-            
-        </ul>
+    <!-- Input Section -->
+    <div class="input-box">
+      <input type="text" id="task-input" placeholder="Enter a new task..." />
+      <button id="btn-1" class="btn primary">Add</button>
+      <button id="btn-2" class="btn update">Update</button>
     </div>
 
+    <!-- Empty Message -->
+    <p id="empty-msg" class="empty-msg">No tasks yet. Add your first one!</p>
 
-
+    <!-- Task List -->
+    <ul id="list" class="task-list"></ul>
+  </div>
+  
 </body>
-<script src="script.js" type="module"></script>
+<script type="module" src="config.js"></script>
+<script type="module" src="script.js"></script>
+<script type="module" src="db.js"></script>
 
 </html>
